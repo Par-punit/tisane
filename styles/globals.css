@@ -1,0 +1,29 @@
+@import "tailwindcss";
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  margin: 0;
+}
+
+input:-webkit-autofill,
+textarea:-webkit-autofill,
+input:-webkit-autofill:focus {
+  background-color: transparent !important;
+  transition: background-color 0s 600000s, color 0s 600000s !important;
+}
+
+body::-webkit-scrollbar {
+  display: none;
+}
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: "Inter", sans-serif;
+  color: white;
+  background: #ffffff;
+}
