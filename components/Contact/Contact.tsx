@@ -1,6 +1,16 @@
 import React, { useState } from "react";
-import { Formik, Field, Form } from "formik";
+import { Formik, Field, Form, FormikHelpers } from "formik";
 import * as Yup from "yup";
+
+interface FormValues {
+  firstname: string;
+  lastname: string;
+  email: string;
+  jobtitle: string;
+  company: string;
+  companysize: string;
+  privacyPolicy: boolean;
+}
 
 const validationSchema = Yup.object().shape({
   firstname: Yup.string().required("First Name is required"),
@@ -21,12 +31,13 @@ function Contact() {
   const [openDemo, setOpenDemo] = useState(false);
   const [openEnquiries, setOpenEnquiries] = useState(false);
 
-  const handleSubmit = (values: any, { setSubmitting, resetForm }: any) => {
-    if (values) {
-      console.log("Form Values:", values);
-      resetForm();
-      setSubmitting(false);
-    }
+  const handleSubmit = (
+    values: FormValues,
+    { setSubmitting, resetForm }: FormikHelpers<FormValues>
+  ) => {
+    console.log("Form Values:", values);
+    resetForm();
+    setSubmitting(false);
   };
 
   return (
@@ -54,8 +65,8 @@ function Contact() {
                     <span className="text-[#333] font-semibold">
                       Get a quote
                     </span>{" "}
-                    from our team to see how Tisane can boost your company's
-                    workflow and create a safer digital space.
+                    from our team to see how Tisane can boost your
+                    company&apos;s workflow and create a safer digital space.
                   </span>
                 </div>
               </div>
